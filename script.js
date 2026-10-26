@@ -10,8 +10,8 @@ document.querySelectorAll('.rv').forEach(el => io.observe(el));
 // Año del footer
 document.getElementById('y').textContent = new Date().getFullYear();
 
-// Formulario -> WhatsApp (sitio estático, sin backend)
-const WHATSAPP = '570000000000'; // <- cambia por el número real, con indicativo y sin +
+// Falta hacer formulario real o link directo, cambiar mas adelante xd
+const WHATSAPP = '570000000000';cambia por el número real, con indicativo y sin 
 document.getElementById('form').addEventListener('submit', e => {
   e.preventDefault();
   const f = new FormData(e.target);
