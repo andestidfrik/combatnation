@@ -129,8 +129,8 @@ footer small{color:var(--gris);font-size:.78rem}
 .redes a:hover{color:var(--gris)}
 
 /* Aparición */
-.rv{opacity:0;transform:translateY(24px);transition:.7s}
-.rv.on{opacity:1;transform:none}
+.js .rv{opacity:0;transform:translateY(24px);transition:.7s}
+.js .rv.on{opacity:1;transform:none}
 
 @media(max-width:900px){
   .valores,.contacto{grid-template-columns:1fr}

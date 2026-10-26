@@ -6,12 +6,14 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.c
 // Aparición al hacer scroll
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: .15 });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
+// Seguro: si algo falla, mostrar todo tras 2.5 s
+setTimeout(() => document.querySelectorAll('.rv').forEach(el => el.classList.add('on')), 2500);
 
 // Año del footer
 document.getElementById('y').textContent = new Date().getFullYear();
 
-// Falta hacer formulario real o link directo, cambiar mas adelante xd
-const WHATSAPP = '570000000000';cambia por el número real, con indicativo y sin 
+// Formulario -> WhatsApp (sitio estático, sin backend)
+const WHATSAPP = '570000000000'; // <- cambia por el número real, con indicativo y sin +
 document.getElementById('form').addEventListener('submit', e => {
   e.preventDefault();
   const f = new FormData(e.target);
