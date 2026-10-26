@@ -1,13 +1,8 @@
 # Combat Nation — sitio estático
 
-HTML + CSS + JS puro, sin build. Funciona directo en GitHub Pages.
+HTML + CSS + JS 
 
-## Publicar en GitHub Pages
-1. Crea un repo en GitHub (ej. `combat-nation`) y sube **el contenido de esta carpeta** a la raíz.
-2. En el repo: **Settings → Pages → Build and deployment → Source: Deploy from a branch → `main` / `(root)`**.
-3. En 1–2 minutos queda en `https://TU-USUARIO.github.io/combat-nation/`.
-
-## Personalizar
+## Editar
 - Textos, horarios y precios: `index.html` (los precios están como `$000.000`).
 - WhatsApp: variable `WHATSAPP` en `script.js`.
 - Foto del hero: agrega `assets/hero.jpg` (si no existe se ve un fondo oscuro).
