@@ -129,8 +129,8 @@ footer small{color:var(--gris);font-size:.78rem}
 .redes a:hover{color:var(--gris)}
 
 /* Aparición */
-.rv{opacity:0;transform:translateY(24px);transition:.7s}
-.rv.on{opacity:1;transform:none}
+.js .rv{opacity:0;transform:translateY(24px);transition:.7s}
+.js .rv.on{opacity:1;transform:none}
 
 @media(max-width:900px){
   .valores,.contacto{grid-template-columns:1fr}
@@ -141,3 +141,18 @@ footer small{color:var(--gris);font-size:.78rem}
   .nav ul.open{display:flex}
   section{padding:80px 0}
 }
+
+/* ===== Sede 10th Planet (colores tomados del logo: negro, blanco, cian/verde/violeta) ===== */
+.tp{--tp-cian:#4fd0e8;--tp-verde:#5de0a8;--tp-violeta:#8a6bd8;background:#000;color:#fff;position:relative;overflow:hidden}
+.tp::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 25% 50%,rgba(79,208,232,.16),rgba(138,107,216,.10) 45%,transparent 70%);pointer-events:none}
+.tp .wrap{position:relative;display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}
+.tp-logo img{width:100%;max-width:460px;margin:0 auto;-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 55%,transparent 72%);mask-image:radial-gradient(circle at 50% 50%,#000 55%,transparent 72%)}
+.tp .eyebrow{color:var(--tp-cian)}
+.tp h2 span{background:linear-gradient(90deg,var(--tp-cian),var(--tp-verde),var(--tp-violeta));-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.tp-lista{list-style:none;margin:28px 0 34px;display:grid;gap:0}
+.tp-lista li{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:.95rem;color:var(--gris);display:flex;gap:14px}
+.tp-lista li b{color:#fff;font-weight:600;min-width:130px}
+.tp .btn{background:#fff;color:#000}
+.tp .btn:hover{background:transparent;color:#fff}
+.tp-nota{margin-top:18px;font-size:.78rem;color:var(--gris);letter-spacing:.06em}
+@media(max-width:900px){.tp .wrap{grid-template-columns:1fr;gap:30px}.tp-lista li{flex-direction:column;gap:2px}}

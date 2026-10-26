@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,125,900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,6 +24,7 @@
     <ul id="menu">
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#clases">Clases</a></li>
+      <li><a href="#jiujitsu">Jiu Jitsu</a></li>
       <li><a href="#horarios">Horarios</a></li>
       <li><a href="#planes">Planes</a></li>
       <li><a href="#comunidad">Comunidad</a></li>
@@ -46,8 +48,8 @@
 </section>
 
 <div class="ticker" aria-hidden="true"><div>
-  <span>Muay Thai</span><span>·</span><span>Boxeo</span><span>·</span><span>MMA</span><span>·</span><span>Kickboxing</span><span>·</span><span>Acondicionamiento</span><span>·</span>
-  <span>Muay Thai</span><span>·</span><span>Boxeo</span><span>·</span><span>MMA</span><span>·</span><span>Kickboxing</span><span>·</span><span>Acondicionamiento</span><span>·</span>
+  <span>Muay Thai</span><span>·</span><span>Boxeo</span><span>·</span><span>MMA</span><span>·</span><span>Jiu Jitsu No-Gi</span><span>·</span><span>Acondicionamiento</span><span>·</span>
+  <span>Muay Thai</span><span>·</span><span>Boxeo</span><span>·</span><span>MMA</span><span>·</span><span>Jiu Jitsu No-Gi</span><span>·</span><span>Acondicionamiento</span><span>·</span>
 </div></div>
 
 <section id="nosotros">
@@ -77,6 +79,25 @@
   </div>
 </section>
 
+<section class="tp" id="jiujitsu">
+  <div class="wrap">
+    <div class="tp-logo rv"><img src="assets/10th-planet-logo.png" alt="10th Planet Jiu Jitsu Barranquilla"></div>
+    <div class="rv">
+      <span class="eyebrow">Sede Barranquilla · Combat Nation</span>
+      <h2>Jiu Jitsu <span>No-Gi</span></h2>
+      <p class="lead">Dentro de Combat Nation funciona la sede de 10th Planet Jiu Jitsu en Barranquilla: grappling sin kimono, técnico, dinámico y para todos los niveles.</p>
+      <ul class="tp-lista">
+        <li><b>Modalidad</b>No-Gi, sin kimono</li>
+        <li><b>Niveles</b>Principiantes, intermedios y avanzados</li>
+        <li><b>Enfoque</b>Técnica, sparring y condición física</li>
+        <li><b>Clase de prueba</b>Pregunta por la primera clase sin compromiso</li>
+      </ul>
+      <a class="btn" href="#contacto"><span>Reservar clase de Jiu Jitsu</span></a>
+      <p class="tp-nota">10th Planet Jiu Jitsu es una marca independiente; su identidad se usa como sede afiliada.</p>
+    </div>
+  </div>
+</section>
+
 <section id="horarios">
   <div class="wrap">
     <span class="eyebrow">03 · Horarios</span>
@@ -88,6 +109,7 @@
         <tr><td>Muay Thai</td><td>6:00 a. m. · 7:00 p. m.</td><td>9:00 a. m.</td></tr>
         <tr><td>Boxeo</td><td>7:00 a. m. · 6:00 p. m.</td><td>10:30 a. m.</td></tr>
         <tr><td>MMA</td><td>8:00 p. m.</td><td>—</td></tr>
+        <tr><td>Jiu Jitsu No-Gi</td><td>7:30 p. m.</td><td>11:00 a. m.</td></tr>
         <tr><td>Acondicionamiento</td><td>5:30 p. m.</td><td>8:00 a. m.</td></tr>
       </tbody>
     </table>
@@ -133,7 +155,7 @@
     <form id="form" style="color:var(--blanco)">
       <input name="nombre" placeholder="Nombre" required style="background:var(--negro)">
       <input name="tel" type="tel" placeholder="Teléfono" required style="background:var(--negro)">
-      <select name="disciplina" style="background:var(--negro)"><option>Muay Thai</option><option>Boxeo</option><option>MMA</option><option>Acondicionamiento</option></select>
+      <select name="disciplina" style="background:var(--negro)"><option>Muay Thai</option><option>Boxeo</option><option>MMA</option><option>Jiu Jitsu No-Gi</option><option>Acondicionamiento</option></select>
       <textarea name="msg" placeholder="Cuéntanos tu objetivo" style="background:var(--negro)"></textarea>
       <button class="btn" type="submit"><span>Enviar por WhatsApp</span></button>
     </form>
@@ -149,6 +171,30 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+// Menú móvil
+const menu = document.getElementById('menu');
+document.getElementById('burger').addEventListener('click', () => menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+// Aparición al hacer scroll
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+// Seguro: si algo falla, mostrar todo tras 2.5 s
+setTimeout(() => document.querySelectorAll('.rv').forEach(el => el.classList.add('on')), 2500);
+
+// Año del footer
+document.getElementById('y').textContent = new Date().getFullYear();
+
+// Formulario -> WhatsApp (sitio estático, sin backend)
+const WHATSAPP = '570000000000'; // <- cambia por el número real, con indicativo y sin +
+document.getElementById('form').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const txt = `Hola Combat Nation, soy ${f.get('nombre')} (${f.get('tel')}). Quiero una clase de prueba de ${f.get('disciplina')}. ${f.get('msg') || ''}`;
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`, '_blank');
+});
+
+</script>
 </body>
 </html>
